@@ -1,0 +1,114 @@
+<div  class = "total" style="text-align:center">
+	 <div class="header" >
+	 		<span class = "area">
+	 			<div class = "item goback" (click)="goBack()"></div>
+	 		</span>
+			<p class="title">病例搜索</p>
+	 </div>
+	 <form [formGroup]="casesForm" novalidate>
+	 	<table class = "table table-hover">
+	 		<tbody>
+	 			<tr>
+	 				<td style = "width:95%">所属机构</td>
+	 				<td ><input type = "text" class="box"  id="institu" formControlName="cinstitu" /></td>
+	 				<td><span class = "desc"></span></td>
+	 			</tr>
+	 			<tr>
+	 				<td>医生</td>
+	 				<td ><input type = "text" class="box"  id="doctor" formControlName="cdoctor"/></td>
+	 				<td><span class = "desc"></span></td>
+	 			</tr>
+	 			<tr>
+	 				<td>患者</td>
+	 				<td ><input type = "text" class="box"  id="patient" formControlName="name"/></td>
+	 				<td></td>
+	 			</tr>
+	 			<tr>
+	 				<td>病历编号</td>
+	 				<td ><input type = "text" class="box"  id="casesno" formControlName="cid"/></td>
+	 				<td></td>
+	 			</tr>
+	 			<tr>
+	 				<td>病历状态</td>
+	 				<td ><input type = "text" class="box"  id="state" readonly="readonly"  data-toggle="modal" data-target="#myModal"  formControlName="cstate" /></td>	 				 
+	 				<!--<select class="form-control" formControlName="state">
+	                  <option >目标待确认</option>
+			          <option >目标待确认中</option>
+			          <option >资料处理中</option>
+			      </select>
+			     </td>-->
+                    <td><span class = "desc"></span></td>
+	 			</tr>
+	 			<tr>
+	 				<td>病历阶段</td>
+	 				<td ><input type = "text" class="box"  id="check" readonly="readonly"  data-toggle="modal" data-target="#myModal1" /></td>
+	 				<!--<td>
+	 				<select class="form-control" formControlName="check">
+	                  <option >新病历</option>
+			          <option >中期</option>
+			          <option >完成</option>
+			      </select>
+	 				</td>-->
+	 				<td><span class = "desc"></span></td>
+	 			</tr>
+	 			<tr>
+	 				<td>建档时间</td>
+	 				<td ><input type = "text" class="box"  id="appDateTime1" formControlName="ctime"/></td>
+	 				<td><span class = "desc"></span></td>
+	 			</tr>
+	 			<tr>
+	 				<td></td>
+	 				<td></td>
+	 				<td></td>
+	 			</tr>
+	 		</tbody>
+	 	</table>
+	 	<div class="nav-button">
+		 <button type="button" id="confirm" class="btn btn-default"  (click)="searchcases()">确定</button>
+		 <span></span>
+		  <button type="button" id="cancalbtn" class="btn btn-default" (click)="goBack()">取消</button>
+		</div>
+		</form>
+	 	<!--<p>Form value: {{ casesForm.value | json }}</p>-->
+	</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="container"> 	
+				<table id="table1" class="table1  table table-hover table-condensed">
+					<tbody>
+					    <tr>
+					    	<td><input  type="button"  id = "desstate"  class = "desstate"  value="目标待确认"  /></td>
+					    </tr>
+					     <tr>
+					    	<td><input  type="button"  id = "desstate"  class = "desstate"  value="目标待确认中" /></td>
+					    </tr>
+					     <tr>
+					    	<td><input  type="button"  id = "desstate" class = "desstate"   value="完成"  /></td>
+					    </tr>
+					  </tbody>
+				</table>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="button1" ></button>
+				</div>
+	       </div>
+		</div><!-- /.modal1-->
+		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="container"> 	
+				<table id="table1" class="table1  table table-hover table-condensed">
+					<tbody>
+					    <tr>
+					    	<td><input  type="button"  id = "descheck"  class = "descheck"  value="新病历"  /></td>
+					    </tr>
+					     <tr>
+					    	<td><input  type="button"  id = "descheck"  class = "descheck"  value="中期" /></td>
+					    </tr>
+					     <tr>
+					    	<td><input  type="button"  id = "descheck" class = "descheck"   value="完成"  /></td>
+					    </tr>
+					  </tbody>
+				</table>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="button2" ></button>
+				</div>
+	       </div>
+		</div><!-- /.modal1-->
+  

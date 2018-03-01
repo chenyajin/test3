@@ -1,0 +1,163 @@
+<div *ngIf="cases" class = "total" style="text-align:center">
+	<div class="fixpart">
+  	 <div class="header" >
+	 		<span class = "area">
+	 			<div class = "item goback" (click)="goBack()"></div>
+	 		</span>
+			<p class="title">病例详情</p>
+			<div class="btn-group">
+				<div data-toggle="dropdown">
+					<span class="menu-icon"></span>
+				</div>
+				<ul class="dropdown-menu pull-right" role="menu" id="nav-menu">
+					<li class="zanting" id="zanting" data-toggle="modal" data-target="#myModal1"><a><img  src = "assets/images/zanting.png" />暂停病历</a></li>
+					<li class="zhongzhi" data-toggle="modal" data-target="#myModal2" ><a><img  src = "assets/images/zhongzhi.png" />终止病历</a></li>
+					<li (click)="toadd(cases.cid)"><a ><img  src = "assets/images/zhuijia.png" />追加订单</a></li>
+				</ul><!--[routerLink]="['/add', cases.cid]" --> 
+			</div>
+	 </div>
+	 <div class="desc">
+	 	<p class = "tit">{{cases.cinstitu}} {{cases.name}} {{cases.cstate}}</p>
+	 </div>
+    <div class = "containers" >
+    <table cellspacing="8" class = "table  table-condensed">
+    	<tr>
+    		<td>患者:</td>
+    		<td class = "infos" colspan = "2">{{cases.name}}</td>
+    		<td>病例阶段:</td>
+    		<td class = "infos">{{cases.ccheck}}</td>
+    	</tr>
+    	<tr>
+    		<td>矫治类型:</td>
+    		<td class = "infos" colspan = "2">{{cases.ctype}}</td>
+    		<td>病例属性:</td>
+    		<td class = "infos">{{cases.cnature}}</td>
+    	</tr>
+    	<tr>
+    		<td>临床医生:</td>
+    		<td class = "infos" colspan = "2">{{cases.cdoctor}}</td>
+    		<td>是否首例:</td>
+    		<td class = "infos">{{cases.cfirst}}</td>
+    	</tr>
+    	<tr>
+    		<td>收治人:</td>
+    		<td class = "infos" colspan = "2">{{cases.ccheckname}}</td>
+    		<td>重扫次数:</td>
+    		<td class = "infos">{{cases.cscan}}</td>
+    	</tr>
+    	<tr>
+    		<td>病例难度:</td>
+    		<td class = "infos" colspan = "2">{{cases.cdifficulty}}</td>
+    		<td>病例编号:</td>
+    		<td class = "infos" >{{cases.cid}}</td>
+    	</tr>
+    </table>
+    </div>
+    <div class= "prog">
+    	<p >处理过程</p>
+    </div>
+   </div>
+   
+   <div class = "deal">
+    	<ul class="time-list">
+    		<div class="leftpart">
+    			{{cases.ctime}}
+    		</div>
+    		<div class="rightpart">
+    		<li>{{cases.ccheck}}</li>
+    		<li>阶段   {{cases.cstate}}</li>
+    		</div>
+    	</ul>
+    	<ul class="time-list">
+    		<li>{{cases.ctime}}</li>
+    		<li>{{cases.ccheck}}阶段   {{cases.cstate}}</li>
+    	</ul>
+    	<ul class="time-list">
+    		<li>{{cases.ctime}}</li>
+    		<li>{{cases.ccheck}}阶段   {{cases.cstate}}</li>
+    	</ul>
+    	<ul class="time-list">
+    		<li>{{cases.ctime}}</li>
+    		<li>{{cases.ccheck}}阶段   {{cases.cstate}}</li>
+    	</ul>
+    	<ul class="time-list">
+    		<li>{{cases.ctime}}</li>
+    		<li>{{cases.ccheck}}阶段   {{cases.cstate}}</li>
+    	</ul>
+    	<ul class="time-list">
+    		<li>{{cases.ctime}}</li>
+    		<li>{{cases.ccheck}}阶段   {{cases.cstate}}</li>
+    	</ul>
+    	<ul class="time-list">
+    		<li>{{cases.ctime}}</li>
+    		<li>{{cases.ccheck}}阶段   {{cases.cstate}}</li>
+    	</ul>
+    	<ul class="time-list">
+    		<li>{{cases.ctime}}</li>
+    		<li>{{cases.ccheck}}阶段   {{cases.cstate}}</li>
+    	</ul>
+    	<ul class="time-list">
+    		<li>{{cases.ctime}}</li>
+    		<li>{{cases.ccheck}}阶段   {{cases.cstate}}</li>
+    	</ul>
+    </div>
+</div>
+
+	 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="flase">
+		<div class="contents">
+		<div class="modal-dialog ">
+			<div class="modal-content" style="width:96%; height:150px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+						请输入暂停原因描述
+					</h4>
+				</div>
+				<textarea  class="rasontxt" id="pauseReason"></textarea>
+				<!--<input type = "text"  class = "reason1"  name = "creason"  />-->
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary" (click)="pauseReason()" style = "float:right;font-size:1.2em"  >
+						确定
+					</button>
+				</div>
+			</div>
+		</div>
+		 </div>
+	</div>
+	
+	 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="flase">
+		<div class="contents">
+		<div class="modal-dialog ">
+			<div class="modal-content" style="width:96%; height:150px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+						请输入终止原因描述
+					</h4>
+				</div>
+				<textarea  class="rasontxt" id="endreason"></textarea>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary" (click)="endReason()" style = "float:right;font-size:1.2em"  >
+						确定
+					</button>
+				</div>
+			</div>
+		</div>
+		 </div>
+	</div>
+	
+ <!--<div class = "reason" id="reason">
+	 	<div>
+	 		<span>请输入原因</span>
+	 		<button class="dele" (click)="removeUpload()">X</button>
+	 	</div>
+	 	<textarea class="rasontxt">
+	 	</textarea>
+	 		<div>
+	 			<button type="button" class="comfirm" (click)="save()">确定</button>
+	 		</div>
+ </div>-->

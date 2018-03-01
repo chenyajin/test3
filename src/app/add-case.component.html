@@ -1,0 +1,86 @@
+<div *ngIf="cases"  class = "total" style="text-align:center">
+	<div class="nav">
+	 <div class="header" >
+	 		<span class = "area">
+	 			<div class = "item goback" (click)="goBack()"></div>
+	 		</span>
+			<p class="title">病例附属订单</p>
+	 </div>
+	 </div>
+<form (ngSubmit)="save()" #casesForm="ngForm">
+	<div class="container1">           
+	<table class="table ">
+		<tbody>
+		    <tr>
+				<td><a style="color:red">*</a>医疗机构</td>
+				<td><input type="text" name="id"  value="{{cases.cinstitu}}"  style="border:hidden"></td>
+				<!--<td>{{cases[0].cinstitu}}</td>-->
+				<td><span class = "desc"></span></td>
+			</tr>
+			<tr>
+				<td><a style="color:red">*</a>医生</td>
+				<td>{{cases.cdoctor}}</td>
+				<td><span class = "desc"></span></td>
+			</tr>
+			<tr >
+				<td><a style="color:red">*</a>患者</td>
+				<td>{{cases.name}}</td>
+				<td><span class = "desc"></span></td>
+			</tr>
+			</tbody>
+	</table>
+	</div>
+			
+	<div class="container2">           
+	<table class="table ">
+		<tbody>	
+			<tr>
+				<td><a style="color:red">*</a>产品</td>
+				<td>单价 </td>
+				<td>数量</td>
+				<td>金额</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+			
+	<div class="container3">           
+	<table class="table ">
+		<tbody>
+			<tr >
+				<td><a style="color:red">*</a>优惠申请</td>
+				<td></td>
+				<td><input type="text" claa="apply" readonly="readonly" value="优惠申请"></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>	
+			
+	<div class="container4">           
+	<table class="table ">
+		<tbody>
+		    <tr >
+				<td ><a style="color:red">*</a>订单金额</td>
+				<td colspan="2"><input type = "text" name="oprice" /></td>
+			</tr>
+			<tr>
+				<td><a style="color:red">*</a>优惠金额</td>
+				<td colspan="2"><input type = "text" name="fprice" /></td>
+			</tr>
+			<tr >
+				<td><a style="color:red">*</a>实际金额</td>
+				<td colspan="2"><input type = "text" name="pprice"></td>
+			</tr>
+			<tr>
+				<td>备注</td>
+				<td colspan="2"><input type = "text" name="other" /></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<div class="nav-but">
+ <button type="submit" class="postdata"  id="postdata">提交订单</button>
+ </div>
+
+</form>
+</div>
